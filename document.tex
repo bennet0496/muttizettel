@@ -1,0 +1,219 @@
+% !TeX spellcheck = de_DE
+\documentclass[10pt,a4paper,ngerman]{article}
+
+\usepackage[margin=3cm,textwidth=13cm,includeheadfoot]{geometry}
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,subcaption}
+\usepackage[
+pdftitle={Erziehungsbeauftragung / Muttizettel / Aufsichtszettel},
+pdfauthor={Bennet Becker}
+]{hyperref}
+
+\usepackage[cm]{fullpage}
+\usepackage{fontspec}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tabularx}
+\usepackage[parfill]{parskip}
+\usepackage[ngerman]{babel}
+
+\usepackage{fancyhdr}
+\usepackage{fontawesome}
+
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[R]{\includegraphics[height=2cm]{logo}} 
+
+
+%\setlength{\headheight}{1cm}
+
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1.3}
+
+\renewcommand{\LayoutCheckField}[2]{\mbox{#2}\,#1}
+\def\LayoutTextField#1#2{% label, field 
+	#2% statt #1 #2 
+}
+
+\let\oldquote'
+\newif\ifquoteopen
+\catcode`\'=\active
+\makeatletter
+% we have to redefine \pr@m@s to use an active '
+\def\pr@m@s{%
+	\ifx'\@let@token
+	\expandafter\pr@@@s
+	\else
+	\ifx^\@let@token
+	\expandafter\expandafter\expandafter\pr@@@t
+	\else
+	\egroup
+	\fi
+	\fi}
+\protected\def'{%
+	\ifmmode
+	\expandafter\active@math@prime
+	\else
+	\expandafter\active@text@prime
+	\fi}
+\def\active@text@prime{%
+	\@ifnextchar'{%
+		\ifquoteopen
+		\global\quoteopenfalse\grqq\expandafter\@gobble
+		\else
+		\global\quoteopentrue\glqq\expandafter\@gobble
+		\fi
+	}{\oldquote}%
+}
+\makeatother
+
+\definecolor{light-gray}{gray}{0.95}
+
+\title{Erziehungsbeauftragung / Muttizettel / Aufsichtszettel nach § 1 Abs. 1 Nr. 4 Jugendschutzgesetz}
+\author{Bennet Becker}
+\date{2018}
+
+
+
+\setmainfont[Ligatures=TeX]{OpenSans}
+\setsansfont[Ligatures=TeX]{OpenSans}
+\setmonofont[Ligatures=TeX]{FreeMono}
+
+\begin{document}
+	{\bfseries\Large Erziehungsbeauftragung / Aufsichtszettel \\nach § 1 Abs. 1 Nr. 4 Jugendschutzgesetz} \\
+	\textcolor{gray}{\emph{Bitte je 1 Kopie für den Veranstalter und 1 Kopie für dich ausdrucken!}}
+	\\
+	\\
+	\begin{Form}
+	\begin{tabularx}{\linewidth}{m{0.333\linewidth}m{0.333\linewidth}m{0.333\linewidth}}
+		\multicolumn{3}{m{0.999\linewidth}}{\bfseries \large Hiermit erkläre ich, als Vormundschaftsbeauftragte/r (Elternteil)} \\
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Vorname Erziehungsberechtigte/r} &
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Nachname Erziehungsberechtigte/r} & 
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Geburtsdatum Erziehungsberechtigte/r} \\
+		 
+		\textcolor{gray}{\small Vorname} & 
+		\textcolor{gray}{\small Nachname} & 
+		\textcolor{gray}{\small Geburtsdatum} \\
+		
+		\multicolumn{3}{m{0.999\linewidth}}{
+			\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Anschrift  Erziehungsberechtigte/r}
+		} \\ 
+		
+		\multicolumn{3}{m{0.999\linewidth}}{
+			\textcolor{gray}{\small Anschrift}
+		} \\
+		
+		\multicolumn{3}{m{0.999\linewidth}}{
+			\em - nachfolgend Vormundschaftsbeauftragte/r -
+		} \\
+		
+		& & \\
+		
+		{\bfseries \large dass für,} & 
+		\CheckBox[backgroundcolor=light-gray,bordercolor=black]{\bfseries \large meinen Sohn} & 
+		\CheckBox[backgroundcolor=light-gray,bordercolor=black]{\bfseries \large meine Tochter} \\
+		
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Vorname Kind} & 
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Nachname Kind} & 
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Geburtsdatum Kind} \\ 
+		
+		\textcolor{gray}{\small Vorname} & 
+		\textcolor{gray}{\small Nachname} & 
+		\textcolor{gray}{\small Geburtsdatum} \\
+		
+		\multicolumn{3}{m{0.999\linewidth}}{
+			\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Anschrift  Kind}
+		} \\ 
+	
+		\multicolumn{3}{m{0.999\linewidth}}{
+			\textcolor{gray}{\small Anschrift (falls abweichend von Vormundschaftsbeauftragtem)}
+		} \\
+	
+		\multicolumn{3}{m{0.999\linewidth}}{
+			\em - nachfolgend Kind -
+		} \\
+	
+		& & \\
+	
+		{\bfseries \large von,} & 
+		\CheckBox[backgroundcolor=light-gray,bordercolor=black]{\bfseries \large Herr} & 
+		\CheckBox[backgroundcolor=light-gray,bordercolor=black]{\bfseries \large Frau} \\
+		
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Vorname Erziehungsbeauftragte/r} & 
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Nachname Erziehungsbeauftragte/r} & 
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Geburtsdatum Erziehungsbeauftragte/r} \\ 
+		
+		\textcolor{gray}{\small Vorname} & 
+		\textcolor{gray}{\small Nachname} & 
+		\textcolor{gray}{\small Geburtsdatum} \\
+		
+		\multicolumn{3}{m{0.999\linewidth}}{
+			\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Anschrift  Erziehungsbeauftragte/r}
+		} \\ 
+		
+		\multicolumn{3}{m{0.999\linewidth}}{
+			\textcolor{gray}{\small Anschrift}
+		} \\
+		
+		\multicolumn{3}{m{0.999\linewidth}}{
+			\em - nachfolgend Erziehungsbeauftragte/r -
+		} \\
+		
+		& & \\
+	\end{tabularx}
+	{\bfseries \large Erziehungsaufgaben im unten aufgeführten Umfang übernommen werden.} \\
+	Ich, als Vormundschaftsbeauftragte/r, kenne den/die Erziehungsbeauftragte/n und vertraue ihm/ihr die erzieherische Führung über mein Kind an. Der/Die Erziehungsbeauftragte ist 18 Jahre oder älter und hat genug erzieherische Kompetenzen, um meinem Kind Grenzen setzen zu können, im Besonderen hinsichtlich des Alkoholkonsums. Der/Die Erziehungsbeauftragte trägt außerdem Sorge dafür, dass mein Kind zur angegebenen Zeit die Veranstaltung verlässt und unversehrt zu Hause ankommt. \\
+	\\
+	{\bfseries \large Bestimmungen zum Datenschutz} \\
+	Für den Einlass zur Veranstaltung, werden ausschließlich die oben angegebenen personenbezogen Daten vom Veranstalter Boxdorfer Jugendverein ''die Hütte'' e.V. \\
+	Diese Daten werden beim Einlass von autorisiertem Personal kontrolliert und danach im Archiv des Veranstalters für fünf Jahre hinterlegt und kann dort nur von berechtigten Personen und Stellen eingesehen werden. Eine weitere Datenerhebung erfolgt nicht. \\
+	Der/Die Vormundschaftsbeauftragte, der/die Erziehungsbeauftragte sowie einer dieser in Vertretung für das Kind (nachfolgend als Gast zusammengefasst) haben das Recht, diese Einwilligung jederzeit ohne Angabe von Gründen zu widerrufen und die erhobenen Daten bei Bedarf zu korrigieren oder löschen zu lassen.\\
+	Der Gast hat das Recht, dieser Einwilligung nicht zuzustimmen – da der Veranstalter zur Erfüllung des Jugendschutzes (§2 JuSchG Abs. 1) diese Daten jedoch erheben und prüfen muss, hat dies einen Ausschluss von der Veranstaltung zu folge.
+	\\
+	\\
+	{\em Mit der Unterschrift, werden diese Bedingungen vom Vormundschaftsbeauftragten und Erziehungsbeauftragten bis zum widerruf akzeptiert}
+	\\
+	\\
+	\vspace{20pt}\\
+	\makebox[0.666\linewidth]{{\LARGE\faPencil}\dotfill} \\
+	Unterschrift Erziehungsbeauftragter
+	\\
+	\\
+	\begin{tabularx}{\linewidth}{m{0.999\linewidth}}
+		{\bfseries \large Diese Beauftragung gilt von - bis} \\
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Datum} \\
+		\textcolor{lightgray}{\small Datum} \\
+		{\bfseries \large für die Tanzveranstaltung im} \\
+		{\em \large Boxdorfer Jugendverein ''die Hütte'' e.V.} \\
+		\\
+		{\bfseries \large Mein Kind darf die Veranstaltung besuchen bis} \\
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Uhrzeit} \\
+		\textcolor{lightgray}{\small Uhrzeit} \\
+		{\bfseries \large Telefonnummer für evtl. Rückfragen} \\
+		\TextField[charsize=12pt,backgroundcolor=light-gray,bordercolor=black,width=\hsize]{Telefon} \\
+	\end{tabularx}
+	\phantom{.}
+	\\
+	\\
+	\vspace{20pt}\\
+	\makebox[0.666\linewidth]{{\LARGE\faPencil}\dotfill} \\
+	Unterschrift Vormundschaftsbeauftragte/r
+	\\
+	\\
+	\textcolor{red}{\bfseries \large Bitte Ausweiskopie des oben genannten Vormundschaftsbeauftragten anfügen!} 
+	\\
+	\\
+	\textcolor{red}{\bfseries Wichtig:} *Zum 15.07.2017 wurde §20 des Personalausweisgesetzes geändert. Die Ausweiskopie muss eindeutig als KOPIE gekennzeichnet sein, d.h. entweder den schriftlichen Vermerk „Kopie“ enthalten oder schwarz/weiss kopiert sein. Für einen Unterschriftenvergleich sind nur Vorname, Name, Geburtsdatum und Unterschrift des Elternteils notwendig. Der Rest kann einfach mit einem Permanentmarker o.ä. geschwärzt werden.
+	\\
+	\textcolor{red}{\bfseries Eine Fälschung der Unterschrift stellt eine Straftat nach §267 StGB dar und bereits der Versuch ist strafbar!}
+	\\
+	\\
+	\vspace{30pt}\\
+	\strut\hfill\textcolor{lightgray}{\scriptsize\em\textcopyright Bennet Becker für Boxdorfer Jugendverein die Hütte e.V., 2018} \includegraphics*[height=.3cm]{cc-by-sa}
+	\end{Form}
+\end{document}
